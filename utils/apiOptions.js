@@ -42,6 +42,7 @@ export const getMyTopTracks = async (token) => {
 
 export const getAlbumTracks = async (albumId, token) => {
   try {
+    console.log(token);
     const res = await fetcher(ALBUM_TRACK_API_GETTER(albumId), token);
     const transformedResponse = res.data?.tracks?.items?.map((item) => {
       item.album = { images: res.data?.images, name: res.data?.name };
